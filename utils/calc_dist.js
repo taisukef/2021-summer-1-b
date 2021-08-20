@@ -2,11 +2,11 @@
 const R = Math.PI / 180;
 
 /**
- * 
+ *
  * @description calculate most nearest 3 places from the place
- * @param {number} lat1 
- * @param {number} lng1 
- * @param {Array} array 
+ * @param {number} lat1
+ * @param {number} lng1
+ * @param {Array} array
  * @returns {Array} 3 items
  */
 export const calcDistance = (lat1, lng1, array) => {
@@ -17,13 +17,17 @@ export const calcDistance = (lat1, lng1, array) => {
   array.forEach((place) => {
     let lat2 = place.latitude * R;
     let lng2 = place.longitude * R;
-    let distance = 6371 * Math.acos(Math.cos(lat1) * Math.cos(lat2) * Math.cos(lng2 - lng1) + Math.sin(lat1) * Math.sin(lat2));
+    let distance = 6371 *
+      Math.acos(
+        Math.cos(lat1) * Math.cos(lat2) * Math.cos(lng2 - lng1) +
+          Math.sin(lat1) * Math.sin(lat2),
+      );
 
     // 自分自身は除外
     if (lat1 == lat2 && lng1 == lng2) {
       return;
     }
-    
+
     place.distance = distance;
     // console.log(`distance: ${distance}, name: ${place.name} `)
     after_calc_array.push(place);
@@ -37,4 +41,4 @@ export const calcDistance = (lat1, lng1, array) => {
     }
   });
   return after_calc_array.slice(0, 3);
-}
+};

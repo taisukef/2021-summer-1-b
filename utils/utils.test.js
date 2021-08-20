@@ -1,12 +1,6 @@
 import testDB from "../setupTestDB.js";
-import {
-  shuffle,
-  getQueries
-} from "./utils.js";
-import {
-  assertEquals,
-  assertNotEquals
-} from "../deps.js";
+import { getQueries, shuffle } from "./utils.js";
+import { assertEquals, assertNotEquals } from "../deps.js";
 
 const places = testDB.queryEntries("SELECT * FROM places");
 
@@ -17,8 +11,8 @@ Deno.test({
     shuffle(places);
 
     assertNotEquals(places[0].name, "めがねミュージアム");
-  }
-})
+  },
+});
 
 Deno.test({
   name: "test getQueries func",
@@ -28,9 +22,9 @@ Deno.test({
     const testReq2 = "longitude=136.198844";
     const testReq3 = "latitude=35.942758";
 
-    assertEquals(getQueries(testReq1).longitude, 136.198844)
-    assertEquals(getQueries(testReq1).latitude, 35.942758)
-    assertEquals(getQueries(testReq2), {})
-    assertEquals(getQueries(testReq3), {})
-  }
-})
+    assertEquals(getQueries(testReq1).longitude, 136.198844);
+    assertEquals(getQueries(testReq1).latitude, 35.942758);
+    assertEquals(getQueries(testReq2), {});
+    assertEquals(getQueries(testReq3), {});
+  },
+});

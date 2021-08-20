@@ -6,7 +6,7 @@
 
 まずはダウンロードしていない方は、Denoとnpmをダウンロードしてください。
 
-[`denoはここから`](https://deno.land/)  
+[`denoはここから`](https://deno.land/)
 
 [`npm(Node.js)はここから`](https://nodejs.org/en/)
 

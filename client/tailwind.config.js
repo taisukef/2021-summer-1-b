@@ -7,8 +7,8 @@ module.exports = {
   },
   purge: {
     content: [
-      './public/index.html',
-      './src/**/*.svelte',
+      "./public/index.html",
+      "./src/**/*.svelte",
     ],
     enabled: production,
   },
@@ -16,14 +16,14 @@ module.exports = {
   theme: {
     extend: {
       gridTemplateRows: {
-        '8': 'repeat(8, minmax(0, 1fr))',
-      }
+        "8": "repeat(8, minmax(0, 1fr))",
+      },
     },
   },
   variants: {
     extend: {},
   },
   plugins: [
-    require('@tailwindcss/line-clamp'),
+    require("@tailwindcss/line-clamp"),
   ],
-}
+};

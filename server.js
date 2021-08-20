@@ -1,22 +1,19 @@
-import {Server} from "./deps.js";
-import {
-  test,
-  getPlaces,
-  getPlace
-} from "./controllers/api.js";
+import { Server } from "./deps.js";
+import { getPlace, getPlaces, test } from "./controllers/api.js";
 
 class MyServer extends Server {
   api(path, req) {
-    switch(path) {
+    switch (path) {
       case "/api/test":
         return test(path);
       // no queries
       case "/api/places":
         return getPlaces();
       // with queries
-      case "/api/places/": 
+      case "/api/places/":
         return getPlace(path, req);
-      default: return;
+      default:
+        return;
     }
   }
 }
