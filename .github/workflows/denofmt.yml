@@ -11,6 +11,14 @@ jobs:
       - name: Run fmt
         run: |
           deno fmt
-      - name: Run lint
+      #- name: Run lint
+      #  run: |
+      #    deno lint
+      - name: commit and push
         run: |
-          deno lint
+          git config --global user.email "workflow@example.com"
+          git config --global user.name "workflow user"
+          git add .
+          git commit -m 'deno fmt' && git push ${REPO} HEAD:${{github.event.pull_request.head.ref}} || true
+          git push
+
