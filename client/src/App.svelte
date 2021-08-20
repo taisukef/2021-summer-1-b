@@ -17,10 +17,15 @@
   };
 
   const loadPlaces = async () => {
+    /*
     const res = await fetch("api/places");
     const data = await res.json();
     success = data.success;
     places = data.data;
+    */
+    places = await (await fetch("places.json")).json();
+    console.log(places);
+    success = true;
   };
 </script>
 
@@ -46,6 +51,7 @@
         {#if revealDetail}
           <Detail
             place={places[curIdx]}
+            places={places}
             on:restore-reviews={() => {
               revealDetail = false;
               nextPlace();
