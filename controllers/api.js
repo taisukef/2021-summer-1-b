@@ -21,8 +21,8 @@ export const getPlaces = () => {
   if (places) {
     shuffle(places);
 
-    // シャッフルした後30個のデータを返す
-    for (let i = 0; i < 30; i++) {
+    // シャッフルした後最大50個のデータを返す
+    for (let i = 0; i < Math.min(50, places.length); i++) {
       responsePlaces.push(places[i]);
     }
 
