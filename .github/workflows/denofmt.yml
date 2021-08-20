@@ -10,8 +10,7 @@ jobs:
           deno-version: v1.x
       - name: deno fmt
         run: |
-          #deno fmt
-          deno fmt --ignore=static/build/bundle.js
+          deno fmt
       #- name: deno fmt check
       #  run: |
       #    deno fmt --check
