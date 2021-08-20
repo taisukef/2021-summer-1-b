@@ -8,9 +8,12 @@ jobs:
       - uses: denoland/setup-deno@v1
         with:
           deno-version: v1.x
-      - name: Run fmt
+      - name: deno fmt
         run: |
           deno fmt
+      #- name: deno fmt check
+      #  run: |
+      #    deno fmt --check
       #- name: Run lint
       #  run: |
       #    deno lint
@@ -21,4 +24,3 @@ jobs:
           git add .
           git commit -m 'deno fmt' && git push ${REPO} HEAD:${{github.event.pull_request.head.ref}} || true
           git push
-
